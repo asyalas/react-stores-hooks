@@ -4,7 +4,7 @@ Inspired by [react-context-io] (https://github.com/yesmeck/react-context-io), ba
 
 ### translate
 
-中文[移步](./README-CN.md)
+中文[移步](https://github.com/asyalas/react-share-context/blob/master/README-CN.md)
 
 ### Installation
 
