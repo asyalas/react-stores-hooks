@@ -52,7 +52,8 @@ export default Person;
 
 ### API
 
-- createContext
+- `createContext`
+  
   注册一个 context
 
   Argument
@@ -64,7 +65,8 @@ export default Person;
 
   - Provider 组件
 
-- useContext
+- `useContext`
+  
   获取指定的 context
 
   Argument
@@ -77,6 +79,6 @@ export default Person;
   - dispatch 派发一个更新 state 的操作
   - getState 获取 states 的 function
 
-- useContext.getGlobal
+- `useContext.getGlobal`
 
   Return object[]

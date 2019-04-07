@@ -56,7 +56,8 @@ export default Person;
 
 ### API
 
-- createContext
+- `createContext`
+  
   registered a context
 
   Argument
@@ -68,7 +69,8 @@ export default Person;
 
   - Provider a Provider component
 
-- useContext
+- `useContext`
+  
   Get the specified context
 
   Argument
@@ -81,6 +83,6 @@ export default Person;
   - dispatch a function that dispatch a new state to update the state
   - getState 
 
-- useContext.getGlobal
+- `useContext.getGlobal`
 
   Return object[]
