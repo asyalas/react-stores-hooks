@@ -56,29 +56,28 @@ export default Person;
   
   注册一个 context
 
-  Argument
-
-  - namespace 注册它的命名空间
-  - initialState 初始值
-
-  Return
-
-  - Provider 组件
+  - Argument
+    - namespace 注册它的命名空间
+    - initialState 初始值
+  - Return
+    - Provider 组件
 
 - `useContext`
   
   获取指定的 context
 
-  Argument
-
-  - namespace 注册它的命名空间
-
-  Return
-
-  - state 注册的 states
-  - dispatch 派发一个更新 state 的操作
-  - getState 获取 states 的 function
+  - Argument
+    - namespace 注册它的命名空间
+  - Return
+    - state 注册的 states
+    - dispatch 派发一个更新 state 的操作
+    - getState 获取 states 的 function
 
 - `useContext.getGlobal`
 
   Return object[]
+
+- `deleteContext`
+
+  delete the specified context
+

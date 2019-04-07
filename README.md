@@ -1,6 +1,6 @@
 ### react-share-context
 
-Inspired by [react-context-io] (https://github.com/yesmeck/react-context-io), based on react hooks, useContext and createContext to store state, and also provide global states tree.
+Inspired by [react-context-io](https://github.com/yesmeck/react-context-io), based on react hooks, useContext and createContext to store state, and also provide global states tree.
 
 ### translate
 
@@ -57,32 +57,30 @@ export default Person;
 ### API
 
 - `createContext`
-  
+
   registered a context
 
-  Argument
-
-  - namespace 
-  - initialState 
-
-  Return
-
-  - Provider a Provider component
+  - Argument
+    - namespace
+    - initialState
+  - Return
+    - Provider a Provider component
 
 - `useContext`
-  
+
   Get the specified context
 
-  Argument
-
-  - namespace 
-
-  Return
-
-  - state 
-  - dispatch a function that dispatch a new state to update the state
-  - getState 
+  - Argument
+    - namespace
+  - Return
+    - state
+    - dispatch a function that dispatch a new state to update the state
+    - getState
 
 - `useContext.getGlobal`
 
   Return object[]
+
+- `deleteContext`
+
+  delete the specified context

@@ -6,7 +6,7 @@ export function useContext(namespace) {
   }
   const context = globalContext[namespace];
   return {
-    state:React.useContext(context),
+    state: React.useContext(context),
     dispatch: context.dispatch,
     getState: context.getState
   };
@@ -34,3 +34,10 @@ export function createContext(namespace, initialState) {
     return React.createElement(NativeProvider, { value: state }, children);
   };
 }
+export function deleteContext(namespace) {
+  if (!namespace) {
+    throw new Error(`expect get the namespace ,but get ${typeof namespace}`);
+  }
+  globalContext[namespace] = null;
+}
+export { globalContext };
