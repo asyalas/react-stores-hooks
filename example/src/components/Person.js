@@ -2,7 +2,7 @@ import React from "react";
 import { createContext, useContext } from "react-share-context";
 
 const Result = () => {
-  const { age, name } = useContext("person");
+  const { age, name } = useContext("person").state;
   return (
     <div>
       <div>name:{name}</div>

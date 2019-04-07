@@ -6,7 +6,7 @@ export function useContext(namespace) {
   }
   const context = globalContext[namespace];
   return {
-    ...React.useContext(context),
+    state:React.useContext(context),
     dispatch: context.dispatch,
     getState: context.getState
   };

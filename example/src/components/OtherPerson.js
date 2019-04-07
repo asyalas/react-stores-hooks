@@ -12,7 +12,7 @@ const OtherPerson = () => {
   );
 };
 const OtherPersonPage = () => {
-  const { age, name } = useContext("otherPerson");
+  const { age, name } = useContext("otherPerson").state;
   return (
     <div>
       <div>name:{name}</div>

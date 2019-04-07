@@ -11,9 +11,9 @@ const All = () => {
     setState(state + 1);
   };
   const dom = Object.entries(globalStates).map(([, v]) => (
-    <div key={v.name}>
-      name : {v.name} <br />
-      age:{v.age}
+    <div key={v.state.name}>
+      name : {v.state.name} <br />
+      age:{v.state.age}
       <br />
       value:{JSON.stringify(v.getState())}
       <button onClick={() => addAgeHandle(v.dispatch)}> add</button>
