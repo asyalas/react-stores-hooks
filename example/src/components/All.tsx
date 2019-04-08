@@ -1,10 +1,10 @@
 import React from "react";
-import { useContext } from "react-share-context";
+import { useGlobalContext } from "../dist";
 const All = () => {
-  const globalStates = useContext.getGlobal();
+  const globalStates = useGlobalContext();
   const [state, setState] = React.useState(0);
-  const addAgeHandle = dispatch => {
-    dispatch(data => ({
+  const addAgeHandle = (dispatch: React.Dispatch<any>) => {
+    dispatch((data: any) => ({
       ...data,
       age: data.age + 1
     }));
@@ -19,7 +19,7 @@ const All = () => {
       <button onClick={() => addAgeHandle(v.dispatch)}> add</button>
     </div>
   ));
-  return dom;
+  return <div>{dom}</div>;
 };
 
 export default All;

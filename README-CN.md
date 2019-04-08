@@ -53,7 +53,7 @@ export default Person;
 ### API
 
 - `createContext`
-  
+
   注册一个 context
 
   - Argument
@@ -62,8 +62,17 @@ export default Person;
   - Return
     - Provider 组件
 
+- `ContextProvider`
+
+  生成一个 Provider,内部调用 createContext
+
+  - props
+    - namespace
+    - initialState
+    - children
+
 - `useContext`
-  
+
   获取指定的 context
 
   - Argument
@@ -73,11 +82,10 @@ export default Person;
     - dispatch 派发一个更新 state 的操作
     - getState 获取 states 的 function
 
-- `useContext.getGlobal`
+- `useGlobalContext`
 
   Return object[]
 
 - `deleteContext`
 
   delete the specified context
-

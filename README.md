@@ -66,7 +66,16 @@ export default Person;
   - Return
     - Provider a Provider component
 
-- `useContext`
+* `ContextProvider`
+
+  create a Provider,call createContext inside
+
+  - props
+    - namespace
+    - initialState
+    - children
+
+* `useContext`
 
   Get the specified context
 
@@ -77,10 +86,12 @@ export default Person;
     - dispatch a function that dispatch a new state to update the state
     - getState
 
-- `useContext.getGlobal`
+* `useGlobalContext`
+
+  Get all contexts
 
   Return object[]
 
-- `deleteContext`
+* `deleteContext`
 
   delete the specified context

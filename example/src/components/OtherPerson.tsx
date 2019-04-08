@@ -1,14 +1,16 @@
 import React from "react";
-import { createContext, useContext } from "react-share-context";
+import { ContextProvider, useContext } from "../dist";
 const OtherPerson = () => {
-  const Provider = createContext("otherPerson", {
-    age: 19,
-    name: "nick"
-  });
   return (
-    <Provider>
+    <ContextProvider
+      namespace="otherPerson"
+      initialState={{
+        age: 19,
+        name: "nick"
+      }}
+    >
       <OtherPersonPage />
-    </Provider>
+    </ContextProvider>
   );
 };
 const OtherPersonPage = () => {
