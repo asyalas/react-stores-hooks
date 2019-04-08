@@ -9,6 +9,8 @@ export function useContext(namespace) {
   return {
     state,
     dispatch: context.dispatch,
+    setState: state =>
+      context.dispatch(preState => ({ ...preState, ...state })),
     getState: context.getState
   };
 }

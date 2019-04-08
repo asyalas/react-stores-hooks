@@ -9,9 +9,21 @@ const OtherPerson = () => {
         name: "nick"
       }}
     >
-      <OtherPersonPage />
+      <div>
+        <OtherPersonPage />
+        <AddButton />
+      </div>
     </ContextProvider>
   );
+};
+const AddButton = () => {
+  const { setState, state } = useContext("otherPerson");
+  const addAgeHandle = () => {
+    setState({
+      age: state.age + 1
+    });
+  };
+  return <button onClick={addAgeHandle}>increase age</button>;
 };
 const OtherPersonPage = () => {
   const { age, name } = useContext("otherPerson").state;

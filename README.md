@@ -29,12 +29,13 @@ const Result = () => {
 };
 
 const AddButton = () => {
-  const { dispatch } = useContext("person");
+  const { dispatch ,state,setState} = useContext("person");
   const addAgeHandle = () => {
     dispatch(data => ({
       ...data,
       age: data.age + 1
     }));
+    // or setState({age:state.age+1}) 
   };
   return <button onClick={addAgeHandle}>increase age</button>;
 };
@@ -85,6 +86,7 @@ export default Person;
     - state
     - dispatch a function that dispatch a new state to update the state
     - getState
+    - setState
 
 * `useGlobalContext`
 

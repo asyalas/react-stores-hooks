@@ -25,12 +25,13 @@ const Result = () => {
 };
 
 const AddButton = () => {
-  const { dispatch } = useContext("person");
+  const { dispatch, state, setState } = useContext("person");
   const addAgeHandle = () => {
     dispatch(data => ({
       ...data,
       age: data.age + 1
     }));
+    // or setState({age:state.age+1})
   };
   return <button onClick={addAgeHandle}>increase age</button>;
 };
@@ -81,6 +82,7 @@ export default Person;
     - state 注册的 states
     - dispatch 派发一个更新 state 的操作
     - getState 获取 states 的 function
+    - setState
 
 - `useGlobalContext`
 

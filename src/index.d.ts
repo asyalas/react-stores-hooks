@@ -4,7 +4,8 @@ type StateType = any;
 type namespaceType = string;
 type BaseContext = {
   state: StateType;
-  dispatch: React.Dispatch;
+  dispatch: React.SetStateAction;
+  setState: (state: StateType) => void;
   getState: () => StateType;
 };
 interface ContextProviderProps {
