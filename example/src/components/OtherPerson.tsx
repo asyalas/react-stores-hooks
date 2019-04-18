@@ -1,5 +1,5 @@
 import React from "react";
-import { ContextProvider, useContext } from "../dist";
+import { ContextProvider, useContext, useDispatchContext } from "../dist";
 const OtherPerson = () => {
   return (
     <ContextProvider
@@ -17,16 +17,17 @@ const OtherPerson = () => {
   );
 };
 const AddButton = () => {
-  const { setState, state } = useContext("otherPerson");
+  const { setState } = useDispatchContext("otherPerson");
+  const { age }:any = useContext("otherPerson");
   const addAgeHandle = () => {
     setState({
-      age: state.age + 1
+      age: age + 1
     });
   };
   return <button onClick={addAgeHandle}>increase age</button>;
 };
 const OtherPersonPage = () => {
-  const { age, name } = useContext("otherPerson").state;
+  const { age, name }: any = useContext("otherPerson");
   return (
     <div>
       <div>name:{name}</div>

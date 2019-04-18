@@ -2,26 +2,29 @@ import * as React from "react";
 
 type StateType = any;
 type namespaceType = string;
-type BaseContext = {
-  state: StateType;
-  dispatch: React.SetStateAction;
-  setState: (state: StateType) => void;
+interface StateContext extends StateType {
   getState: () => StateType;
+}
+
+type DispatchContext = {
+  dispatch: any;
+  setState: (state: StateType) => void;
 };
-interface ContextProviderProps {
+interface CreateContextOptions {
   namespace: namespaceType;
   initialState: StateType;
-  children: React.ReactChild;
 }
+interface ContextProviderProps extends CreateContextOptions {
+  children: React.ReactNode;
+}
+
 interface GetGlobal {
-  [index: string]: BaseContext;
+  [index: string]: StateContext & DispatchContext;
 }
-export function useContext(namespace: namespaceType): BaseContext;
+export function useContext(namespace: namespaceType): StateContext;
+export function useDispatchContext(namespace: namespaceType): DispatchContext;
 export function useGlobalContext(): GetGlobal;
-export function createContext(
-  namespace: namespaceType,
-  initialState: StateType
-): React.Provider;
-export function ContextProvider(props: ContextProviderProps);
+export function createContext(options: CreateContextOptions): React.Provider;
+export function ContextProvider(props: ContextProviderProps): any;
 export function deleteContext(namespace: namespaceType): void;
 export type globalContext = any;

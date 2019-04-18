@@ -1,6 +1,6 @@
 ### react-share-context
 
-Inspired by [react-context-io](https://github.com/yesmeck/react-context-io), based on react hooks, useContext and createContext to store state, and also provide global states tree.
+Inspired by [react-context-io](https://github.com/yesmeck/react-context-io), based on react hooks, useContext and createContext to share state between components, and also provide global states tree to get different context state.
 
 ### translate
 
@@ -16,10 +16,10 @@ npm i react-share-context
 
 ```js
 import React from "react";
-import { createContext, useContext } from "react-share-context";
+import { createContext, useContext, useDispatchContext } from "react-share-context";
 
 const Result = () => {
-  const { age, name } = useContext("person").state;
+  const { age, name }: any = useContext("person");
   return (
     <div>
       <div>name:{name}</div>
@@ -29,20 +29,22 @@ const Result = () => {
 };
 
 const AddButton = () => {
-  const { dispatch ,state,setState} = useContext("person");
+  const { dispatch } = useDispatchContext("person");
   const addAgeHandle = () => {
-    dispatch(data => ({
+    dispatch((data: any) => ({
       ...data,
       age: data.age + 1
     }));
-    // or setState({age:state.age+1}) 
   };
   return <button onClick={addAgeHandle}>increase age</button>;
 };
 const Person = () => {
-  const Provider = createContext("person", {
-    age: 18,
-    name: "harry"
+  const Provider = createContext({
+    namespace: "person",
+    initialState: {
+      age: 18,
+      name: "harry"
+    }
   });
   return (
     <Provider>
@@ -53,6 +55,7 @@ const Person = () => {
 };
 
 export default Person;
+
 ```
 
 ### API
@@ -61,7 +64,7 @@ export default Person;
 
   registered a context
 
-  - Argument
+  - Options
     - namespace
     - initialState
   - Return
@@ -84,8 +87,17 @@ export default Person;
     - namespace
   - Return
     - state
-    - dispatch a function that dispatch a new state to update the state
     - getState
+
+
+* `useDispatchContext`
+
+  Get the specified context
+
+  - Argument
+    - namespace
+  - Return
+    - dispatch a function that dispatch a new state to update the state
     - setState
 
 * `useGlobalContext`

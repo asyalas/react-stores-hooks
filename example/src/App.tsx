@@ -1,8 +1,8 @@
 import React from "react";
-import All from "./components/All";
 import OtherPerson from "./components/OtherPerson";
 import Person from "./components/Person";
 import Line from "./components/Line";
+import Reducers from "./components/Reducers";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Line />
       <OtherPerson />
       <Line />
-      <All />
+      <Reducers />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "react-share-context",
-  "version": "1.0.10",
+  "version": "1.2.0",
   "description": "Share state with creatContext and useContext",
   "main": "src/index.js",
   "scripts": {

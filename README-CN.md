@@ -1,6 +1,6 @@
 ### react-share-context
 
-受到[react-context-io](https://github.com/yesmeck/react-context-io)的启发，基于 react 的 hooks，利用 useContext 和 createContext 来进行状态的存储，同时也提供了获取全局状态树的可能。
+受到[react-context-io](https://github.com/yesmeck/react-context-io)的启发，基于 react 的 hooks，利用 useContext 和 createContext 来进行state在不同组件里的共享，同时也提供了获取全局状态树的来获取其他模块的上下文的state。
 
 ### Installation
 
@@ -12,10 +12,10 @@ npm i react-share-context
 
 ```js
 import React from "react";
-import { createContext, useContext } from "react-share-context";
+import { createContext, useContext, useDispatchContext } from "react-share-context";
 
 const Result = () => {
-  const { age, name } = useContext("person").state;
+  const { age, name }: any = useContext("person");
   return (
     <div>
       <div>name:{name}</div>
@@ -25,20 +25,22 @@ const Result = () => {
 };
 
 const AddButton = () => {
-  const { dispatch, state, setState } = useContext("person");
+  const { dispatch } = useDispatchContext("person");
   const addAgeHandle = () => {
-    dispatch(data => ({
+    dispatch((data: any) => ({
       ...data,
       age: data.age + 1
     }));
-    // or setState({age:state.age+1})
   };
   return <button onClick={addAgeHandle}>increase age</button>;
 };
 const Person = () => {
-  const Provider = createContext("person", {
-    age: 18,
-    name: "harry"
+  const Provider = createContext({
+    namespace: "person",
+    initialState: {
+      age: 18,
+      name: "harry"
+    }
   });
   return (
     <Provider>
@@ -49,6 +51,7 @@ const Person = () => {
 };
 
 export default Person;
+
 ```
 
 ### API
@@ -57,7 +60,7 @@ export default Person;
 
   注册一个 context
 
-  - Argument
+  - Options
     - namespace 注册它的命名空间
     - initialState 初始值
   - Return
@@ -71,6 +74,16 @@ export default Person;
     - namespace
     - initialState
     - children
+- `useDispatchContext`
+
+  Get the specified context
+
+  - Argument
+    - namespace
+  - Return
+    - dispatch 派发一个更新 state 的操作
+    - setState
+
 
 - `useContext`
 
@@ -80,9 +93,7 @@ export default Person;
     - namespace 注册它的命名空间
   - Return
     - state 注册的 states
-    - dispatch 派发一个更新 state 的操作
     - getState 获取 states 的 function
-    - setState
 
 - `useGlobalContext`
 

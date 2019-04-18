@@ -1,8 +1,8 @@
 import React from "react";
-import { createContext, useContext } from "../dist";
+import { createContext, useContext, useDispatchContext } from "../dist";
 
 const Result = () => {
-  const { age, name } = useContext("person").state;
+  const { age, name }: any = useContext("person");
   return (
     <div>
       <div>name:{name}</div>
@@ -12,7 +12,7 @@ const Result = () => {
 };
 
 const AddButton = () => {
-  const { dispatch } = useContext("person");
+  const { dispatch } = useDispatchContext("person");
   const addAgeHandle = () => {
     dispatch((data: any) => ({
       ...data,
@@ -22,9 +22,12 @@ const AddButton = () => {
   return <button onClick={addAgeHandle}>increase age</button>;
 };
 const Person = () => {
-  const Provider = createContext("person", {
-    age: 18,
-    name: "harry"
+  const Provider = createContext({
+    namespace: "person",
+    initialState: {
+      age: 18,
+      name: "harry"
+    }
   });
   return (
     <Provider>
