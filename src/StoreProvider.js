@@ -1,22 +1,22 @@
 import * as React from "react";
 import { createContext, useDispatchContext } from "./index";
+import { createDispatch, wrap } from "./utils";
 
-const wrap = props => {
-  return props.children;
-};
-const DispatchProvider = props => {
+export const DispatchProvider = props => {
   const { C, namespace, children } = props;
   const dispatchProps = useDispatchContext(namespace);
   return React.createElement(C, dispatchProps, children);
 };
+
 export default props => {
   const { reducers, namespace, children } = props;
   const Store = Object.entries(reducers).reduce((C, v, index) => {
-    const [key, Dispatch] = v;
+    const [key, reduce] = v;
     const reducerNamespace = `${namespace}.${key}`;
+    const { initialState, Component } = createDispatch(reduce);
     const StateProvider = createContext({
       namespace: reducerNamespace,
-      initialState: {}
+      initialState
     });
 
     return WrapProps =>
@@ -28,7 +28,7 @@ export default props => {
           {},
           React.createElement(
             DispatchProvider,
-            { C: Dispatch, namespace: reducerNamespace },
+            { C: Component, namespace: reducerNamespace },
             WrapProps.children
           )
         )

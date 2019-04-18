@@ -11,6 +11,8 @@ const checkIsExit = namespace => {
         throw new Error("the Context has mounted");
     }
 };
+
+
 export function useContext(namespace) {
     checkNameSpace(namespace);
     const context = (globalContext[namespace] || {}).stateContext;

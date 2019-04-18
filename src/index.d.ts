@@ -21,10 +21,19 @@ interface ContextProviderProps extends CreateContextOptions {
 interface GetGlobal {
   [index: string]: StateContext & DispatchContext;
 }
+
+interface StoreProviderPorps {
+  children: React.ReactNode;
+  namespace: namespaceType;
+  reducers: any;
+  // reducers: {
+  //   [index: string]: React.ReactNode;
+  // };
+}
 export function useContext(namespace: namespaceType): StateContext;
 export function useDispatchContext(namespace: namespaceType): DispatchContext;
 export function useGlobalContext(): GetGlobal;
 export function createContext(options: CreateContextOptions): React.Provider;
 export function ContextProvider(props: ContextProviderProps): any;
 export function deleteContext(namespace: namespaceType): void;
-export type globalContext = any;
+export function StoreProvider(props: StoreProviderPorps): any;
