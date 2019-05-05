@@ -1,6 +1,6 @@
 {
-  "name": "react-share-context",
-  "version": "1.2.0",
+  "name": "react-stores-hooks",
+  "version": "1.0.2",
   "description": "Share state with creatContext and useContext",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -15,6 +15,7 @@
   "keywords": [
     "hooks",
     "react",
+    "react-stores-hooks",
     "react-context-io",
     "share-context",
     "global-context",
@@ -28,12 +29,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asyalas/react-share-context.git"
+    "url": "git+https://github.com/asyalas/react-stores-hook.git"
   },
   "bugs": {
-    "url": "https://github.com/asyalas/react-share-context/issues"
+    "url": "https://github.com/asyalas/react-stores-hook/issues"
   },
-  "homepage": "https://github.com/asyalas/react-share-context#readme",
+  "homepage": "https://github.com/asyalas/react-stores-hook#readme",
   "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.3"
