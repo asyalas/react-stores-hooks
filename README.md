@@ -1,22 +1,22 @@
-### react-stores-hook
+### react-stores-hooks
 
 Inspired by [react-context-io](https://github.com/yesmeck/react-context-io), based on react hooks, useContext and createContext to share state between components, and also provide global states tree to get different context state.
 
 ### translate
 
-中文[移步](https://github.com/asyalas/react-stores-hook/blob/master/README-CN.md)
+中文[移步](https://github.com/asyalas/react-stores-hooks/blob/master/README-CN.md)
 
 ### Installation
 
 ```bash
-npm i react-stores-hook
+npm i react-stores-hooks
 ```
 
 ### Base Usage
 
 ```js
 import React from "react";
-import { createContext, useContext, useDispatchContext } from "react-stores-hook";
+import { createContext, useContext, useDispatchContext } from "react-stores-hooks";
 
 const Result = () => {
   const { age, name }: any = useContext("person");

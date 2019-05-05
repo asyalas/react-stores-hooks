@@ -1,6 +1,6 @@
 {
   "name": "react-stores-hooks",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Share state with creatContext and useContext",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -29,12 +29,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asyalas/react-stores-hook.git"
+    "url": "git+https://github.com/asyalas/react-stores-hooks.git"
   },
   "bugs": {
-    "url": "https://github.com/asyalas/react-stores-hook/issues"
+    "url": "https://github.com/asyalas/react-stores-hooks/issues"
   },
-  "homepage": "https://github.com/asyalas/react-stores-hook#readme",
+  "homepage": "https://github.com/asyalas/react-stores-hooks#readme",
   "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.3"

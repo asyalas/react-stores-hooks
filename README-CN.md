@@ -1,18 +1,18 @@
-### react-stores-hook
+### react-stores-hooks
 
 受到[react-context-io](https://github.com/yesmeck/react-context-io)的启发，基于 react 的 hooks，利用 useContext 和 createContext 来进行state在不同组件里的共享，同时也提供了获取全局状态树的来获取其他模块的上下文的state。
 
 ### Installation
 
 ```bash
-npm i react-stores-hook
+npm i react-stores-hooks
 ```
 
 ### Base Usage
 
 ```js
 import React from "react";
-import { createContext, useContext, useDispatchContext } from "react-stores-hook";
+import { createContext, useContext, useDispatchContext } from "react-stores-hooks";
 
 const Result = () => {
   const { age, name }: any = useContext("person");
